@@ -1,34 +1,31 @@
 import java.util.Scanner;
+import java.math.BigInteger;
 
 public class factorial{
 
-	public static long fact (long num){
-                if(num<=1){
-		  return 1;
+	public static BigInteger fac (BigInteger num){
+                if(num.compareTo(BigInteger.ONE)<=0){
+		  return BigInteger.ONE;
 		}else{
-		 return num*fact(num-1);
+		 return num.multiply(fact(num.subtract(BigInteger.ONE)));
 	}
   public static void main(String []args){
     Scanner scanInput = new Scanner (System.in);
-    System.out.print("Introduzca un número: ");
-<<<<<<< HEAD
+    System.out.print("Introduzca un número: ")
+
+
+	    BigInteger num = BigInteger.valueOf(scanInput.nextLong());
     
-    if(num<0){
+    if(num.compareTo(BigInteger.ZERO)<0){
 	System.out.print("El factorial no esta definido" + " para mantener numeros negativos");
     }else{
-	long fac = fact(num);
-	System.out.println("El factorial de"+num+"es "+fac);
-=======
-    long num = scanInput.nextLong();
-    
-    long fac = fact(num);
+	
+	    BigInteger fac = fact(num);
 
-    }
-    System.out.println("El factorial de "+num+"es"+fac);
-    scanInput.close();
->>>>>>> recursivo
+	System.out.println("El factorial de"+num+"es "+fac)   
+
   }
   scanInput.close();
-}
+  }	
 }
 
